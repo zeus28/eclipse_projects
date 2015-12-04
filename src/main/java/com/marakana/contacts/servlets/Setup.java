@@ -1,14 +1,15 @@
 package com.marakana.contacts.servlets;
 
-import java.sql.SQLException;
+//import java.sql.SQLException;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-
+/*
 import com.marakana.contacts.repositories.AddressRepository;
 import com.marakana.contacts.repositories.ContactRepository;
 import com.marakana.contacts.entities.*;
+*/
 
 @WebListener
 public class Setup implements ServletContextListener {
@@ -20,7 +21,7 @@ public class Setup implements ServletContextListener {
 	}
 
 	@Override
-	@SuppressWarnings("unused")
+	
 	public void contextInitialized(ServletContextEvent sce) {
 		
 		/*
