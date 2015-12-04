@@ -55,13 +55,14 @@ public class ContactServlet extends HttpServlet {
 
 			Contact contact = new Contact();
 			contact.setName(request.getParameter("name"));
+			
 
 			try {
 
 				new AddressRepository().create(address);
 				contact.setAddressId(address.getId());
 				new ContactRepository().create(contact);
-				response.sendRedirect("contacts");
+				response.sendRedirect("contact?id="+ contact.getId());
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
