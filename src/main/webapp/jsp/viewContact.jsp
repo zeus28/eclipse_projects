@@ -11,7 +11,7 @@
 		<p>Address</p>
 		
 			<ul>
-				<li>street : ${address.street} /></li>
+				<li>street : ${address.street} </li>
 				<li>city : ${address.city} , ${address.state} ${address.zip}</li>
 			</ul>
 		

@@ -80,7 +80,7 @@ public class AddressRepository {
 	public static Address unmarshal(ResultSet results) throws SQLException {
 
 		Address address = new Address();
-		address.setId(results.getLong("address_id"));
+		address.setId(results.getLong("id"));
 		address.setCity(results.getString("City"));
 		address.setStreet(results.getString("Street"));
 		address.setState(results.getString("State"));

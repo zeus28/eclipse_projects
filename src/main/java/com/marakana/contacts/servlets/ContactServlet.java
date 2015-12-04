@@ -33,7 +33,7 @@ public class ContactServlet extends HttpServlet {
 				request.setAttribute("address", address);
 				request.setAttribute("contact", contact);
 				
-				request.getRequestDispatcher("jsp/contact").forward(request, response);
+				request.getRequestDispatcher("jsp/viewContact.jsp").forward(request, response);
 				
 			} catch (SQLException e) {
 
