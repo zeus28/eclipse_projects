@@ -48,6 +48,7 @@ public class AddressRepository {
 
 		} finally {
 			connection.close();
+			
 		}
 	}
 
