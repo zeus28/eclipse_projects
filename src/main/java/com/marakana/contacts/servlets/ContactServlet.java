@@ -15,6 +15,8 @@ import com.marakana.contacts.repositories.*;
 public class ContactServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	private AddressRepository  addressRepository =  new AddressRepository();
+	private ContactRepository contactRepository = new ContactRepository();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,14 +29,18 @@ public class ContactServlet extends HttpServlet {
 
 			try {
 
-				Contact contact = new ContactRepository().find(id);
-				Address address = new AddressRepository().find(contact.getAddressId());
-				
+				Contact contact = contactRepository.find(id);
+				Address address =addressRepository.find(contact.getAddressId());
 				request.setAttribute("address", address);
 				request.setAttribute("contact", contact);
-				
-				request.getRequestDispatcher("jsp/viewContact.jsp").forward(request, response);
-				
+				if (request.getParameter("edit") != null) {
+					request.getRequestDispatcher("jsp/editContact.jsp").forward(request, response);
+					
+				} else {
+					
+					request.getRequestDispatcher("jsp/viewContact.jsp").forward(request, response);
+				}
+
 			} catch (SQLException e) {
 
 				throw new ServletException(e);
@@ -55,21 +61,44 @@ public class ContactServlet extends HttpServlet {
 
 			Contact contact = new Contact();
 			contact.setName(request.getParameter("name"));
-			
 
 			try {
 
-				new AddressRepository().create(address);
+				addressRepository.create(address);
 				contact.setAddressId(address.getId());
-				new ContactRepository().create(contact);
-				response.sendRedirect("contact?id="+ contact.getId());
+				contactRepository.create(contact);
+				response.sendRedirect("contact?id=" + contact.getId());
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		} else if (request.getParameter("edit") != null) {
+
+			long id = Long.parseLong(request.getParameter("id"));
+			try {
+				
+				
+				Contact contact = contactRepository.find(id);
+				Address address = addressRepository.find(contact.getAddressId());
+				
+				contact.setName(request.getParameter("name"));
+				address.setCity(request.getParameter("city"));
+				address.setState(request.getParameter("state"));
+				address.setStreet(request.getParameter("street"));
+				address.setZip(request.getParameter("zip"));
+				contactRepository.update(contact);
+				addressRepository.update(address);
+				response.sendRedirect("contact?id="+contact.getId());
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 
 	}
+
 
 }
