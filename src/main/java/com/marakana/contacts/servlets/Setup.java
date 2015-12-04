@@ -28,7 +28,7 @@ public class Setup implements ServletContextListener {
 		try {
 			//ContactRepository contactRepository = new ContactRepository();
 			//AddressRepository addressRepository = new AddressRepository();
-			//contactRepository.init();
+			////contactRepository.init();
 			//addressRepository.init();
 			//Contact contact = new Contact("Kyriacos",(long)2);
 			//Address address = new Address("Ermou 18", "Lmassol", "ddd", "2536");
