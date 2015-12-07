@@ -15,7 +15,7 @@ import com.marakana.contacts.repositories.*;
 public class ContactServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private AddressRepository  addressRepository =  new AddressRepository();
+	private AddressRepository addressRepository = new AddressRepository();
 	private ContactRepository contactRepository = new ContactRepository();
 
 	@Override
@@ -30,14 +30,14 @@ public class ContactServlet extends HttpServlet {
 			try {
 
 				Contact contact = contactRepository.find(id);
-				Address address =addressRepository.find(contact.getAddressId());
+				Address address = addressRepository.find(contact.getAddressId());
 				request.setAttribute("address", address);
 				request.setAttribute("contact", contact);
 				if (request.getParameter("edit") != null) {
 					request.getRequestDispatcher("jsp/editContact.jsp").forward(request, response);
-					
+
 				} else {
-					
+
 					request.getRequestDispatcher("jsp/viewContact.jsp").forward(request, response);
 				}
 
@@ -77,11 +77,10 @@ public class ContactServlet extends HttpServlet {
 
 			long id = Long.parseLong(request.getParameter("id"));
 			try {
-				
-				
+
 				Contact contact = contactRepository.find(id);
 				Address address = addressRepository.find(contact.getAddressId());
-				
+
 				contact.setName(request.getParameter("name"));
 				address.setCity(request.getParameter("city"));
 				address.setState(request.getParameter("state"));
@@ -89,16 +88,29 @@ public class ContactServlet extends HttpServlet {
 				address.setZip(request.getParameter("zip"));
 				contactRepository.update(contact);
 				addressRepository.update(address);
-				response.sendRedirect("contact?id="+contact.getId());
+				response.sendRedirect("contact?id=" + contact.getId());
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
+		} else if (request.getParameter("delete") != null) {
+
+			long id = Long.parseLong(request.getParameter("id"));
+			try {
+				
+				Contact contact = contactRepository.find(id);
+				Address address = addressRepository.find(contact.getAddressId());
+				contactRepository.delete(contact);
+				addressRepository.delete(address);
+				response.sendRedirect("contacts");
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
-
 
 }
