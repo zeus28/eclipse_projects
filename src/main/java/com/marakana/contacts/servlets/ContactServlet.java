@@ -64,7 +64,7 @@ public class ContactServlet extends HttpServlet {
 
 			try {
 
-				addressRepository.create(address);
+				addressRepository.save(address);
 				contact.setAddressId(address.getId());
 				contactRepository.create(contact);
 				response.sendRedirect("contact?id=" + contact.getId());
@@ -87,7 +87,7 @@ public class ContactServlet extends HttpServlet {
 				address.setStreet(request.getParameter("street"));
 				address.setZip(request.getParameter("zip"));
 				contactRepository.update(contact);
-				addressRepository.update(address);
+				addressRepository.save(address);
 				response.sendRedirect("contact?id=" + contact.getId());
 
 			} catch (SQLException e) {

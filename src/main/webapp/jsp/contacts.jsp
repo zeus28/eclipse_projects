@@ -14,5 +14,6 @@
 		</c:forEach>
 	</ul>
 	<a href="contact?add">add new contact</a>
+	
 </body>
 </html>
