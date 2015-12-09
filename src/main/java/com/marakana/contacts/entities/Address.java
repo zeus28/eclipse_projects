@@ -1,11 +1,26 @@
 package com.marakana.contacts.entities;
 
+
+import javax.persistence.*;
+
+@Entity
 public class Address {
-	private long Id;
+	@Id
+	@GeneratedValue
+	private Long Id;
+	
+	@Column
 	private String street;
+	
+	@Column
 	private String city;
+	
+	@Column
 	private String state;
+	
+	@Column
 	private String zip;
+	
 	public Address() {
 	}
 
@@ -15,6 +30,7 @@ public class Address {
 		this.state = state;
 		this.zip = zip;
 	}
+	
 	public long getId() {
 		return Id;
 		

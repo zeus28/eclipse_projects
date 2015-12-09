@@ -1,10 +1,21 @@
 package com.marakana.contacts.entities;
 
+import javax.persistence.*;
+
+@Entity
 public class Contact {
 	
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column
 	private String name;
+	
+	@Column
 	private Long addressId;
+	
+	@Column 
+	private String phoneNumber;
 
 	public Contact() {
 	}
