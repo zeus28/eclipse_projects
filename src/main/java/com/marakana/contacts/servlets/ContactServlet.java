@@ -1,8 +1,6 @@
 package com.marakana.contacts.servlets;
 
 import java.io.IOException;
-import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,24 +25,18 @@ public class ContactServlet extends HttpServlet {
 		} else {
 			long id = Long.parseLong(request.getParameter("id"));
 
-			try {
+			Contact contact = contactRepository.find(id);
+			Address address = addressRepository.find(contact.getAddressId());
+			request.setAttribute("address", address);
+			request.setAttribute("contact", contact);
+			if (request.getParameter("edit") != null) {
+				request.getRequestDispatcher("jsp/editContact.jsp").forward(request, response);
 
-				Contact contact = contactRepository.find(id);
-				Address address = addressRepository.find(contact.getAddressId());
-				request.setAttribute("address", address);
-				request.setAttribute("contact", contact);
-				if (request.getParameter("edit") != null) {
-					request.getRequestDispatcher("jsp/editContact.jsp").forward(request, response);
+			} else {
 
-				} else {
-
-					request.getRequestDispatcher("jsp/viewContact.jsp").forward(request, response);
-				}
-
-			} catch (SQLException e) {
-
-				throw new ServletException(e);
+				request.getRequestDispatcher("jsp/viewContact.jsp").forward(request, response);
 			}
+
 		}
 	}
 
@@ -62,53 +54,38 @@ public class ContactServlet extends HttpServlet {
 			Contact contact = new Contact();
 			contact.setName(request.getParameter("name"));
 
-			try {
+			addressRepository.save(address);
+			contact.setAddressId(address.getId());
+			contactRepository.save(contact);
+			response.sendRedirect("contact?id=" + contact.getId());
+			
 
-				addressRepository.save(address);
-				contact.setAddressId(address.getId());
-				contactRepository.create(contact);
-				response.sendRedirect("contact?id=" + contact.getId());
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		} else if (request.getParameter("edit") != null) {
 
 			long id = Long.parseLong(request.getParameter("id"));
-			try {
 
-				Contact contact = contactRepository.find(id);
-				Address address = addressRepository.find(contact.getAddressId());
+			Contact contact = contactRepository.find(id);
+			Address address = addressRepository.find(contact.getAddressId());
 
-				contact.setName(request.getParameter("name"));
-				address.setCity(request.getParameter("city"));
-				address.setState(request.getParameter("state"));
-				address.setStreet(request.getParameter("street"));
-				address.setZip(request.getParameter("zip"));
-				contactRepository.update(contact);
-				addressRepository.save(address);
-				response.sendRedirect("contact?id=" + contact.getId());
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			contact.setName(request.getParameter("name"));
+			address.setCity(request.getParameter("city"));
+			address.setState(request.getParameter("state"));
+			address.setStreet(request.getParameter("street"));
+			address.setZip(request.getParameter("zip"));
+			contactRepository.save(contact);
+			addressRepository.save(address);
+			response.sendRedirect("contact?id=" + contact.getId());
 
 		} else if (request.getParameter("delete") != null) {
 
 			long id = Long.parseLong(request.getParameter("id"));
-			try {
-				
-				Contact contact = contactRepository.find(id);
-				Address address = addressRepository.find(contact.getAddressId());
-				contactRepository.delete(contact);
-				addressRepository.delete(address);
-				response.sendRedirect("contacts");
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			Contact contact = contactRepository.find(id);
+			Address address = addressRepository.find(contact.getAddressId());
+			contactRepository.delete(contact);
+			addressRepository.delete(address);
+			response.sendRedirect("contacts");
+
 		}
 
 	}

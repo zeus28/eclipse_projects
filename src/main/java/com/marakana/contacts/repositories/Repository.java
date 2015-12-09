@@ -1,5 +1,7 @@
 package com.marakana.contacts.repositories;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -22,5 +24,8 @@ public class Repository<E> {
 
 	public void delete(E entity) {
 		em.remove(entity);
+	}
+	public List<E> findAll() {
+		return em.createQuery("from " + this.entityClass.getSimpleName(),entityClass).getResultList();
 	}
 }
