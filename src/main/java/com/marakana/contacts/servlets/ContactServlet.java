@@ -13,7 +13,7 @@ import com.marakana.contacts.repositories.*;
 public class ContactServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private AddressRepository addressRepository = new AddressRepository();
+	//private AddressRepository addressRepository = new AddressRepository();
 	private ContactRepository contactRepository = new ContactRepository();
 
 	@Override
