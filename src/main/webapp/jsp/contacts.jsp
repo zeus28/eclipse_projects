@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<h1>All Contacts</h1>
 	<ul>
 		<c:forEach var ="contact" items = "${contacts}">
-			<li><a href="contact?id=${contact.id}">${contact.id} ${contact.name} ${contact.addressId}</a></li>
+			<li><a href="contact?id=${contact.id}">${contact.id} ${contact.name}</a></li>
 		</c:forEach>
 	</ul>
 	<a href="contact?add">add new contact</a>

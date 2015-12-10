@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Address {
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	
 	@Column
 	private String street;
@@ -32,7 +32,7 @@ public class Address {
 	}
 	
 	public long getId() {
-		return Id;
+		return id;
 		
 	}
 	public String getStreet() {
@@ -55,7 +55,7 @@ public class Address {
 		return state;
 	}
 	public void setId(long id){
-		this.Id = id;
+		this.id = id;
 	}
 
 	public void setState(String state) {

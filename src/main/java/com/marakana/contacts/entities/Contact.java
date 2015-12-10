@@ -11,8 +11,10 @@ public class Contact {
 	@Column
 	private String name;
 	
-	@Column
-	private Long addressId;
+	
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Address address;
 	
 	@Column 
 	private String phoneNumber;
@@ -20,9 +22,9 @@ public class Contact {
 	public Contact() {
 	}
 
-	public Contact(String name,Long addressId) {
+	public Contact(String name,Address address) {
 		this.name = name;
-		this.addressId = addressId;
+		this.address = address;
 	}
 
 	public Long getId(){
@@ -39,10 +41,10 @@ public class Contact {
 		this.name = name;
 	}
 	
-	public void setAddressId(Long addressId){
-		this.addressId = addressId;
+	public void setAddress(Address address){
+		this.address =address;
 	}
-	public long getAddressId() {
-		return addressId;
+	public Address getAddress() {
+		return this.address;
 	}
 }
