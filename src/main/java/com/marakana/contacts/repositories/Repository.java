@@ -18,8 +18,11 @@ public class Repository<E> {
 		return em.find(entityClass, id);
 	}
 
-	public void save(E entity) {
-		em.merge(entity);
+	public E save(E entity) {
+		em.getTransaction().begin();
+		entity=em.merge(entity);
+		em.getTransaction().commit();
+		return entity;
 	}
 
 	public void delete(E entity) {
