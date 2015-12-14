@@ -6,7 +6,7 @@ public class AddressRepository extends Repository<Address> {
 
 	
 	public AddressRepository() {
-		super(Address.class);
+		//super(Address.class);
 	}
 	
 	

@@ -14,9 +14,9 @@ import javax.sql.DataSource;*/
 import com.marakana.contacts.entities.Contact;
 
 public class ContactRepository extends Repository<Contact> {
-	public ContactRepository() {
+	/*public ContactRepository() {
 		super(Contact.class);
-	}
+	}*/
 	
 	
 }

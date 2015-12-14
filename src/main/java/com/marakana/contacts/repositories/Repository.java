@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 
 public class Repository<E> {
 
-	private final EntityManager em = Persistence.createEntityManagerFactory("training").createEntityManager();
+	/*private final EntityManager em = Persistence.createEntityManagerFactory("training").createEntityManager();
 	private final Class<E> entityClass;
 
 	Repository(Class<E> entityClass) {
@@ -33,5 +33,5 @@ public class Repository<E> {
 
 	public List<E> findAll() {
 		return em.createQuery("from " + this.entityClass.getSimpleName(), entityClass).getResultList();
-	}
+	}*/
 }

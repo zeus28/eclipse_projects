@@ -32,7 +32,7 @@ public class ContactController {
 */
 	@RequestMapping(value = "/contacts", method = RequestMethod.GET)
 	public String getContactList(Model model){
-		model.addAttribute("contact",contactRepository.findAll());
+		//model.addAttribute("contact",contactRepository.findAll());
 		return "contact/list";
 	}
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
@@ -44,8 +44,8 @@ public class ContactController {
 
 		}else {
 			long id=Long.parseLong(request.getParameter("id"));
-			Contact contact = contactRepository.find(id);
-			request.setAttribute("contact",contact);
+			//Contact contact = contactRepository.find(id);
+			//request.setAttribute("contact",contact);
 			
 			if (request.getParameter("edit") != null){
 				
