@@ -4,12 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Contact {
-
-	@Id
-	@GeneratedValue
-	private Long id;
-	
+public class Contact  extends BaseEntity{
+		
 	@Column
 	private String name;
 
@@ -22,14 +18,7 @@ public class Contact {
 		
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	
 	public String getName() {
 		return name;
 	}
