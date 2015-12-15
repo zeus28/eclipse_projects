@@ -12,10 +12,10 @@
 	<h1>All Contacts</h1>
 	<ul>
 		<c:forEach var ="contact" items = "${contacts}">
-			<li><a href="contact?id=${contact.id}">${contact.id} ${contact.name}</a></li>
+			<li><a href="person?id=${contact.id}">${contact.id} ${contact.name}</a></li>
 		</c:forEach>
 	</ul>
-	<a href="contact?add">add new contact</a>
+	<a href="person?add">add new person</a>
 	
 </body>
 </html>

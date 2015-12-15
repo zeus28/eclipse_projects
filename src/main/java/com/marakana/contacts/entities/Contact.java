@@ -3,26 +3,23 @@ package com.marakana.contacts.entities;
 import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Contact {
 
 	@Id
 	@GeneratedValue
 	private Long id;
+	
 	@Column
 	private String name;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	private Address address;
-
-	@Column
-	private String phoneNumber;
 
 	public Contact() {
 	}
 
-	public Contact(String name, Address address) {
+	public Contact(String name) {
 		this.name = name;
-		this.address = address;
+		
 	}
 
 	public Long getId() {
@@ -41,11 +38,5 @@ public class Contact {
 		this.name = name;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
-	public Address getAddress() {
-		return this.address;
-	}
 }
