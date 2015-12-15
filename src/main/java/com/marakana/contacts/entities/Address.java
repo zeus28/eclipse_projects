@@ -27,8 +27,6 @@ public class Address extends BaseEntity {
 		this.zip = zip;
 	}
 
-	
-
 	public String getStreet() {
 		return street;
 	}
@@ -48,8 +46,6 @@ public class Address extends BaseEntity {
 	public String getState() {
 		return state;
 	}
-
-	
 
 	public void setState(String state) {
 		this.state = state;
