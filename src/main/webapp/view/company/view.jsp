@@ -8,13 +8,9 @@
 <title>${person.name}</title>
 </head>
 <body>
-		<h1>${person.name}</h1>
-			<ul>
-				<c:set var ="address" value = "${person.address}" />
-				<li>street : ${address.street} </li>
-				<li>city : ${address.city} , ${address.state} ${address.zip}</li>
-			</ul>
-		<a href="${person.url}&edit">edit contact</a>
+		<h1>${company.name}</h1>
+		<!-- TODO: list offices -->
+		<a href="${company.url}&edit">edit contact</a>
 		<a href="contacts">back to contacts list</a>
 </body>
 </html>
