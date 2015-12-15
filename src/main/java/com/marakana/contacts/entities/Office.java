@@ -27,9 +27,10 @@ public class Office extends UrlEntity {
 	}
 	
 	public Office() { }
-	public  Office(Address address,Company company){
+	public  Office(String name,Address address,Company company){
 		this.address=address;
 		this.company = company;
+		this.name = name;
 	}
 	
 	public Address getAddress() {
