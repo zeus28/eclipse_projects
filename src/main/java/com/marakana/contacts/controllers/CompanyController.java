@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.marakana.contacts.entities.Address;
+
 import com.marakana.contacts.entities.Company;
 import com.marakana.contacts.repositories.CompanyRepository;
-import com.marakana.contacts.repositories.PersonRepository;
+
 
 @Controller
 public class CompanyController {

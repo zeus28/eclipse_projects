@@ -16,6 +16,16 @@ public class Office extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@ManyToOne
+	private Company company;
+	
+	public Company getCompany() {
+		return company;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	
 	public Office() { }
 	public  Office(Address address){
 		this.address=address;
