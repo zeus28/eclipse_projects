@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Contact extends BaseEntity {
+public abstract class Contact extends UrlEntity {
 
 	@Column
 	private String name;
@@ -25,7 +25,7 @@ public abstract class Contact extends BaseEntity {
 		this.name = name;
 	}
 
-	public abstract String getUrl();
+	
 			
 
 }

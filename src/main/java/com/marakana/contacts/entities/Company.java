@@ -23,11 +23,8 @@ public class Company extends Contact {
 	}
 	public void setOffices(Set<Office> offices) {
 		this.offices = offices;
+		
 	}
-	@Override
-	public String getUrl() {
-		// TODO Auto-generated method stub
-		return "company?id="+this.getId();
-	}
+	
 	
 }

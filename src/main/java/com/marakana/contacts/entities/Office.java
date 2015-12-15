@@ -2,7 +2,7 @@ package com.marakana.contacts.entities;
 import javax.persistence.*;
 
 @Entity
-public class Office extends BaseEntity {
+public class Office extends UrlEntity {
 
 	@OneToOne
 	private Address address;
