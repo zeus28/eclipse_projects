@@ -9,8 +9,12 @@
 </head>
 <body>
 		<h1>${office.name}</h1>
-		<!-- TODO: list offices -->
-		<a href="${office.url}&edit">edit contact</a>
+		<ul>
+			<c:forEach var = "office"  items = "${company.offices}">
+				<li><a href="${office.url}">${office.name}</a></li>
+			</c:forEach>
+		</ul>
+		<a href="${office.url}&edit">edit office</a>
 		<a href="${office.company.url}">back to ${office.company.name}</a>
 </body>
 </html>

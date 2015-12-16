@@ -2,11 +2,14 @@ package com.marakana.contacts.entities;
 
 import javax.persistence.*;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Contact extends UrlEntity {
 
-	@Column
+	@Column(nullable=false)
+	@NotBlank
 	private String name;
 
 	public Contact() {
