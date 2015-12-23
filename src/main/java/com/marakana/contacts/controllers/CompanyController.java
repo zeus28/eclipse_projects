@@ -75,32 +75,7 @@ public class CompanyController {
 		return "redirect:contacts";
 	}
 
-	/*
-	 * @RequestMapping(value = "/contact", method = RequestMethod.POST) public
-	 * void postContact(HttpServletRequest request, HttpServletResponse
-	 * response) throws ServletException, IOException { if
-	 * (request.getParameter("add") != null) { Address address = new
-	 * Address(request.getParameter("street"), request.getParameter("city"),
-	 * request.getParameter("state"), request.getParameter("zip")); Contact
-	 * contact = new Contact(request.getParameter("name"), address); contact =
-	 * contactRepository.save(contact); response.sendRedirect("/contact?id=" +
-	 * contact.getId());
-	 * 
-	 * } else if (request.getParameter("edit") != null) { long id =
-	 * Long.parseLong(request.getParameter("id")); Contact contact =
-	 * contactRepository.findOne(id); Address address = contact.getAddress();
-	 * 
-	 * address.setCity(request.getParameter("city"));
-	 * address.setState(request.getParameter("state"));
-	 * address.setStreet(request.getParameter("street"));
-	 * address.setZip(request.getParameter("zip"));
-	 * contact.setName(request.getParameter("name"));
-	 * contact.setAddress(address); contactRepository.save(contact);
-	 * response.sendRedirect("contact?id=" + contact.getId());
-	 * 
-	 * 
-	 * } }
-	 */
+	
 
 	/*
 	 * @RequestMapping(value = "/contact", method = RequestMethod.GET) public

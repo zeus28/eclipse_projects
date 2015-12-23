@@ -17,7 +17,6 @@ public abstract class Contact extends UrlEntity {
 
 	public Contact(String name) {
 		this.name = name;
-
 	}
 
 	public String getName() {
