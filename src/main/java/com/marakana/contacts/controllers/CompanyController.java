@@ -81,6 +81,7 @@ public class CompanyController {
 	 * @RequestMapping(value = "/contact", method = RequestMethod.GET) public
 	 * void getContact(HttpServletRequest request, HttpServletResponse response)
 	 * throws IOException, ServletException {
+	 *
 	 * 
 	 * if (request.getParameter("add") != null) {
 	 * request.getRequestDispatcher("view/contact/add.jsp").forward(request,
