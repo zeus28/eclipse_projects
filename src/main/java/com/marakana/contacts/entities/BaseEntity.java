@@ -20,7 +20,6 @@ public abstract class BaseEntity {
 	public void setVersion(Long version) {
 		this.version = version;
 	}
-	
 	public Long getId() {
 		return id;
 	}
