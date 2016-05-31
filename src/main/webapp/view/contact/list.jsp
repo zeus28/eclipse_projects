@@ -16,6 +16,7 @@
 		</c:forEach>
 	</ul>
 	<a href="person?add">add new person</a>
+	<span style="width:55px;"></span>
 	<a href="company?add">add new company</a>
 	
 </body>

@@ -10,6 +10,10 @@ public class Address extends BaseEntity {
 	@Column(nullable =false)
 	@NotBlank
 	private String street;
+	
+	@Column(nullable =false)
+	@NotBlank
+	private String region;
 
 	@Column(nullable =false,length=64)
 	@NotBlank
@@ -26,11 +30,19 @@ public class Address extends BaseEntity {
 	public Address() {
 	}
 
-	public Address(String street, String city, String state, String zip) {
+	public Address(String street, String city, String state, String zip, String region) {
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
+		this.region = region;
+	}
+	public String getRegion(){
+		return region;
+	}
+	
+	public void setRegion(String region) {
+		this.region=region;
 	}
 
 	public String getStreet() {

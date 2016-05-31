@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Person</title>
+<style type="text/css">
+	
+</style>
 </head>
 <body>
 		<h1>Add Person</h1>

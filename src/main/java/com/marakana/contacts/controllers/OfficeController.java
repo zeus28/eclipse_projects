@@ -60,7 +60,7 @@ public class OfficeController {
 	public String postAddOffice(@RequestParam long company_id,@RequestParam String name, 
 			@RequestParam String street, @RequestParam String city,
 			@RequestParam String state, @RequestParam String zip) {
-		Address address = new Address(street, city, state, zip);
+		Address address = new Address(street, city, state, zip,"dali");
 		Company company = companyRepository.findOne(company_id);
 		Office office = new Office(name, address,company);
 		office=officeRepository.save(office);

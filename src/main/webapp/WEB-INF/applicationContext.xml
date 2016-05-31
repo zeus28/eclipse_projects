@@ -16,18 +16,25 @@
 	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
 		destroy-method="close">
 		<property name="datasourceBean">
-			<bean class="org.hsqldb.jdbc.JDBCDataSource">
-				<property name="url" value="jdbc:hsqldb:file:target/data/trainingdb" />
+			<bean class="oracle.jdbc.pool.OracleDataSource">
+				<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<property name="user" value="marakana" />
+				<property name="password" value="marakana" />
+				<!--property name="connectionCachingEnabled" value="true" /> -->
 			</bean>
 		</property>
 	</bean>
+
+
+
+
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="generateDdl" value="true" />
-				<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
+				<property name="databasePlatform" value="org.hibernate.dialect.Oracle10gDialect" />
 			</bean>
 		</property>
 	</bean>

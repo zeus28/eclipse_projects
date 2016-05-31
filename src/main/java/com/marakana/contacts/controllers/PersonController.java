@@ -56,7 +56,7 @@ public class PersonController {
 	@RequestMapping(value = "/person", params = "add", method = RequestMethod.POST)
 	public String postAddPerson(@RequestParam String name, @RequestParam String street, @RequestParam String city,
 			@RequestParam String state, @RequestParam String zip) {
-		Address address = new Address(street, city, state, zip);
+		Address address = new Address(street, city, state, zip,"dali");
 		Person person = new Person(name, address);
 		person=personRepository.save(person);
 		return "redirect:person?id=" + person.getId();
