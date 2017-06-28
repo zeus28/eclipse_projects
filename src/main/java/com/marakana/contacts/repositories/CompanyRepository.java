@@ -20,8 +20,6 @@ import com.marakana.contacts.entities.Company;
 	public ContactRepository() {
 		super(Contact.class);
 	}
-	
-	
 }*/
 public interface CompanyRepository extends JpaRepository<Company, Long> {
 

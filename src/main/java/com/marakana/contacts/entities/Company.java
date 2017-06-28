@@ -10,7 +10,6 @@ public class Company extends Contact {
 	@OneToMany(mappedBy="company", cascade= CascadeType.ALL, orphanRemoval= true)
 	private Set<Office> offices;
 	
-	
 	public Company() {}
 	public Company(String name,Set<Office> offices){
 		super(name);

@@ -19,15 +19,11 @@
 			<bean class="oracle.jdbc.pool.OracleDataSource">
 				<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe" />
 				<property name="user" value="marakana" />
-				<property name="password" value="marakana" />
+				<property name="password" value="413912" />
 				<!--property name="connectionCachingEnabled" value="true" /> -->
 			</bean>
 		</property>
 	</bean>
-
-
-
-
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

@@ -58,7 +58,6 @@ public class CompanyController {
 		Company company = new Company(name, null);
 		company = companyRepository.save(company);
 		return "redirect:company?id=" + company.getId();
-
 	}
 
 	@RequestMapping(value = "/company", params = "edit", method = RequestMethod.POST)
