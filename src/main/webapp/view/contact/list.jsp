@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<h1>All Contacts</h1>
 	<ul>
 		<c:forEach var ="contact" items = "${contacts}">

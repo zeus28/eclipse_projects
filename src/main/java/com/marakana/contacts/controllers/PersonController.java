@@ -73,6 +73,7 @@ public class PersonController {
 		address.setState(state);
 		address.setStreet(street);
 		address.setZip(zip);
+		address.setRegion("Booo");
 		person.setName(name);
 		personRepository.save(person);
 		return "redirect:person?id=" + person.getId();
